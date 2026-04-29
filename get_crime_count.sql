@@ -14,3 +14,5 @@ BEGIN
     RETURN crime_count;
 END;
 $$ LANGUAGE plpgsql;
+
+select GetTotalCrimesByArea('N Hollywood');

@@ -9,7 +9,7 @@ CREATE TABLE Victim_Type ( --Stores demographic information for victim
 CREATE TABLE Crime_Type ( --Classifies the type of crime committed
 	Crm_Cd INT PRIMARY KEY,
 	Crm_Cd_Desc TEXT NOT NULL,
-	Crm_Cd_1 INT NOT NULL, 
+	Crm_Cd_1 INT NOT NULL,
     Crm_Cd_2 INT, 
     Crm_Cd_3 INT,
     Crm_Cd_4 INT
@@ -33,7 +33,7 @@ CREATE TABLE Occurence( -- Holds the date and time combinations for crime occure
 
 CREATE TABLE Weapon_Type ( --Tells us the weapon they used for the crime
 	Weapon_Cd INT PRIMARY KEY,
-	Weapond_Desc TEXT
+	Weapon_Desc TEXT
 );
 
 CREATE TABLE Premises ( --Tells us what type of spot the crime occured 

@@ -41,23 +41,25 @@ CREATE TABLE Premises ( --Tells us what type of spot the crime occured
 	Premise_Desc TEXT NOT NULL
 );
 
-CREATE TABLE Location (
+CREATE TABLE Location ( -- This table holds the location and other information such as the area code and other locations
 	Location_ID INT PRIMARY KEY,
 	LOCATION VARCHAR(100),
 	Cross_Street VARCHAR(100),
 	LAT FLOAT,
 	LON FLOAT,
 	Area_Cd INT NOT NULL,
-	FOREIGN KEY (Area_Cd) REFERENCES Area(Area_Cd) ON DELETE RESTRICT
+	FOREIGN KEY (Area_Cd) REFERENCES Area(Area_Cd) ON DELETE RESTRICT --This is so user's can't delete an Area row that is bounded to a location row
 );
 
-CREATE TABLE Crime_Report (
+CREATE TABLE Crime_Report ( --This table is for every unique crime reported in the table. holds almost all the information at the table
 	DR_NO BIGINT PRIMARY KEY,
-	Date_Rptd DATE NOT NULL,
+	Date_Rptd DATE NOT NULL, --Has to have a date reported based off of the data
 	Part_1_2 INT,
 	Mocodes VARCHAR(100),
 	Rpt_Dist_No INT,
-	Occurence_ID BIGINT NOT NULL,
+	Occurence_ID BIGINT NOT NULL,  --Every crime has some type of information as to when it happened
+
+	--We cannot let the user delete a row with any of this information if it is bounded to a crime_report
 	FOREIGN KEY (Occurence_ID) REFERENCES Occurence(Occurence_ID) ON DELETE RESTRICT,
 	Location_ID INT NOT NULL,
 	FOREIGN KEY (Location_ID) REFERENCES Location(Location_ID) ON DELETE RESTRICT,

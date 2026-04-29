@@ -40,3 +40,13 @@ CREATE TABLE Premises ( --Tells us what type of spot the crime occured
 	Premise_Cd INT PRIMARY KEY,
 	Premise_Desc TEXT NOT NULL
 );
+
+CREATE TABLE Location (
+	Location_ID INT PRIMARY KEY,
+	LOCATION VARCHAR(100),
+	Cross_Street VARCHAR(100),
+	LAT FLOAT,
+	LON FLOAT,
+	Area_Cd INT NOT NULL,
+	FOREIGN KEY (Area_Cd) REFERENCES Area(Area_Cd) ON DELETE RESTRICT
+);

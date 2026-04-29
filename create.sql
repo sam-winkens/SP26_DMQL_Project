@@ -59,7 +59,7 @@ CREATE TABLE Crime_Report ( --This table is for every unique crime reported in t
 	Rpt_Dist_No INT,
 	Occurence_ID BIGINT NOT NULL,  --Every crime has some type of information as to when it happened
 
-	--We cannot let the user delete a row with any of this information if it is bounded to a crime_report 
+	--We cannot let the user delete a row with any of this information if it is bounded to a crime_report
 	FOREIGN KEY (Occurence_ID) REFERENCES Occurence(Occurence_ID) ON DELETE RESTRICT,
 	Location_ID INT NOT NULL,
 	FOREIGN KEY (Location_ID) REFERENCES Location(Location_ID) ON DELETE RESTRICT,

@@ -1,2 +1,1 @@
-SELECT * from CRIME_REPORT
-WHERE dr_no = 211507896;
+SELECT * from crime_report;

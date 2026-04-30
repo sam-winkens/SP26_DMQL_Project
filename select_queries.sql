@@ -26,10 +26,10 @@ JOIN Premises P ON CR.Premise_Cd = P.Premise_Cd
 GROUP BY P.Premise_Desc
 ORDER BY Total_Crimes DESC;
 
--- Query 4: This query ranks the most common combinations...
+-- Query 4: This query identifies and ranks the 5 most frequent combinations of crime types and weapons
 SELECT 
     CT.Crm_Cd_Desc AS Crime_Type, 
-    WT.Weapon_Desc AS Weapon_Involved, 
+    WT.Weapon_Desc AS Weapon_Involved,
     COUNT(*) AS Incident_Count
 FROM Crime_Report CR
 JOIN Crime_Type CT ON CR.Crm_Cd = CT.Crm_Cd

@@ -19,9 +19,9 @@ CREATE INDEX idx_report_location ON Crime_Report(Location_ID);
 CREATE INDEX idx_location_area ON Location(Area_Cd);
 
 
---Problematic Query 3: Text-Based Location Searches
---Filtering for a specific string on each row searched is cpu intensive
-EXPLAIN SELECT * FROM Location WHERE LOCATION = '7TH ST';
+--Problematic Query 3: Identifying Crimes Involving a Specific Weapon
+--Searching the largest table for a specific weapon signature
+EXPLAIN SELECT * FROM Crime_Report WHERE Weapon_Cd = 101;
 
---We create b-tree index for LOCATION string
-CREATE INDEX idx_location_name ON Location(LOCATION);
+--Creating an index on the Weapon_Cd foreign key
+CREATE INDEX idx_report_weapon ON Crime_Report(Weapon_Cd);

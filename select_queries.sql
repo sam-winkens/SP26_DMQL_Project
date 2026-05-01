@@ -16,7 +16,7 @@ WHERE Area_Cd IN (
     FROM Crime_Report CR
     JOIN Location L ON CR.Location_ID = L.Location_ID
     GROUP BY L.Area_Cd
-    HAVING COUNT(*) > 2
+    HAVING COUNT(*) > 20000
 );
 
 -- Query 3: This query returns the total number of incidents for every type of location defined in our database
@@ -26,7 +26,7 @@ JOIN Premises P ON CR.Premise_Cd = P.Premise_Cd
 GROUP BY P.Premise_Desc
 ORDER BY Total_Crimes DESC;
 
--- Query 4: This query identifies and ranks the 5 most frequent combinations of crime types and weapons
+-- Query 4: This query identifies and ranks the 100 most frequent combinations of crime types and weapons
 SELECT 
     CT.Crm_Cd_Desc AS Crime_Type, 
     WT.Weapon_Desc AS Weapon_Involved,
@@ -36,4 +36,4 @@ JOIN Crime_Type CT ON CR.Crm_Cd = CT.Crm_Cd
 JOIN Weapon_Type WT ON CR.Weapon_Cd = WT.Weapon_Cd
 GROUP BY CT.Crm_Cd_Desc, WT.Weapon_Desc
 ORDER BY Incident_Count DESC
-LIMIT 5;
+LIMIT 100;
